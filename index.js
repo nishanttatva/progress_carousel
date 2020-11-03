@@ -12,7 +12,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginVertical: 10,
   },
-  imageContainer: {overflow: 'hidden', marginTop: 20, alignSelf: 'center'},
+  imageContainer: {
+    overflow: 'hidden',
+    marginTop: 20,
+    alignSelf: 'center',
+    borderWidth: 1,
+  },
   image: {flex: 1},
   textBase: {marginTop: 10, alignSelf: 'center'},
 });
@@ -116,6 +121,8 @@ function ProgressCarousel(props) {
                 height: imageSize,
                 width: imageSize,
                 borderRadius: imageSize / 2,
+                borderColor: level > index ? activeColor : inactiveColor,
+                opacity: level > index ? 1 : 0.5,
               },
             ]}>
             <Image
@@ -131,6 +138,7 @@ function ProgressCarousel(props) {
               styles.textBase,
               {
                 color: level > index ? activeColor : inactiveColor,
+                opacity: level > index ? 1 : 0.5,
               },
             ]}
             numberOfLines={1}>
@@ -163,3 +171,4 @@ ProgressCarousel.propTypes = {
 };
 
 export default ProgressCarousel;
+
